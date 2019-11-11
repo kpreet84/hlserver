@@ -90,7 +90,7 @@ HLSServer.prototype._writeDebugPlayer = function (res, next) {
   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
   res.setHeader('Content-Type', CONTENT_TYPE.HTML)
   res.statusCode = 200
-  // TODO: Use HLS.js
+  // TODO: Use HLS.js other things 
   res.write(debugPlayer.html)
   res.end()
   next()
