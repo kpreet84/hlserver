@@ -42,8 +42,8 @@ function masterProcess () {
     workers.push(worker)
     worker.send({
       port: port,
-      dir: dir,
-      path: path
+      dir: '/hls',
+      path: '/streams'
     })
   }
 
