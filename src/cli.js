@@ -41,7 +41,7 @@ function masterProcess () {
     var worker = cluster.fork()
     workers.push(worker)
     worker.send({
-      port: '8082',
+      port: '8080',
       dir: '/hls',
       path: '/streams'
     })
