@@ -60,10 +60,11 @@ function childProcess () {
 
 	var server_port = process.env.OPENSHIFT_NODEJS_PORT ||  process.env.OPENSHIFT_INTERNAL_PORT || process.env.PORT || msg.port
 	var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || process.env.OPENSHIFT_INTERNAL_IP || '127.0.0.1'
+	var server_dir = process.env.OPENSHIFT_DATA_DIRP || ''
  
 	server.listen(server_port, server_ip_address, function () {
 		console.log( "Listening on " + server_ip_address + ", port " + server_port )
-		console.log( "DATA DIR FOR HLSSERVER is:: + process.env.OPENSHIFT_DATA_DIR)
+		console.log( "DATA DIR FOR HLSSERVER is::" + server_dir)
 	});
 	
 	
