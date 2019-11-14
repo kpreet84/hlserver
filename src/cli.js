@@ -58,8 +58,8 @@ function childProcess () {
       dir: msg.dir
     })
 
-	var server_port = process.env.OPENSHIFT_NODEJS_PORT || msg.port
-	var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+	var server_port = process.env.OPENSHIFT_NODEJS_PORT ||  process.env.OPENSHIFT_INTERNAL_PORT || process.env.PORT || msg.port
+	var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || process.env.OPENSHIFT_INTERNAL_IP || '127.0.0.1'
  
 	server.listen(server_port, server_ip_address, function () {
 		console.log( "Listening on " + server_ip_address + ", port " + server_port )
