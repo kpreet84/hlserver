@@ -37,7 +37,16 @@ HLSServer.prototype.attach = function (server, opts) {
     var port = server
     server = http.createServer()
     httpAttach(server, self._middleware.bind(self))
-    server.listen(port)
+	
+	
+	var server_port = process.env.OPENSHIFT_NODEJS_PORT ||  process.env.OPENSHIFT_INTERNAL_PORT || process.env.PORT || port
+	var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || process.env.OPENSHIFT_INTERNAL_IP || '127.0.0.1'
+ 
+	server.listen(server_port, server_ip_address, function () {
+		console.log( "Now Listening on .. " + server_ip_address + ", port " + server_port )
+	});
+	
+    //server.listen(port)
   }
 }
 
@@ -90,7 +99,7 @@ HLSServer.prototype._writeDebugPlayer = function (res, next) {
   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
   res.setHeader('Content-Type', CONTENT_TYPE.HTML)
   res.statusCode = 200
-  // TODO: Use HLS.js other things 
+  // TODO: Use HLS.js
   res.write(debugPlayer.html)
   res.end()
   next()
