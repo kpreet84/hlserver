@@ -19,7 +19,7 @@ function masterProcess () {
   }
 
   function printHelp () {
-    console.log('hlsserver - Quick and simple HLS video streaming server.')
+    console.log('hlsserver - Quick and simple HLS video streaming server is.')
     console.log('')
     console.log('Usage:')
     console.log('  hlsserver --port <port> --dir <directory> --path <path>  Run an HLS server.')
